@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		144326012915E12300042B80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326002915E12300042B80 /* main.cpp */; };
+		144326112915E12F00042B80 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326072915E12F00042B80 /* Renderer.cpp */; };
+		144326122915E12F00042B80 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1443260B2915E12F00042B80 /* main.cpp */; };
+		144326132915E12F00042B80 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1443260F2915E12F00042B80 /* Node.cpp */; };
+		1443261B2915E19100042B80 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326192915E19100042B80 /* Scene.cpp */; };
+		1443261C2915E44700042B80 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144326172915E16600042B80 /* SDL2.framework */; };
+		144326202915F3D800042B80 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1443261E2915F3D800042B80 /* Shapes.cpp */; };
+		144326232916028800042B80 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326212916028800042B80 /* Parser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +29,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		142ADAF82916235A0057EFB3 /* face.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = face.obj; sourceTree = "<group>"; };
+		142ADAF9291624000057EFB3 /* cube.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		144325FD2915E12300042B80 /* 3D */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 3D; sourceTree = BUILT_PRODUCTS_DIR; };
-		144326002915E12300042B80 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		144326072915E12F00042B80 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Renderer.cpp; path = ../../../../../Downloads/Renderer.cpp; sourceTree = "<group>"; };
+		144326092915E12F00042B80 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vector3.hpp; path = ../../../../../Downloads/Vector3.hpp; sourceTree = "<group>"; };
+		1443260A2915E12F00042B80 /* Renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Renderer.hpp; path = ../../../../../Downloads/Renderer.hpp; sourceTree = "<group>"; };
+		1443260B2915E12F00042B80 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../../Downloads/main.cpp; sourceTree = "<group>"; };
+		1443260C2915E12F00042B80 /* Geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Geometry.hpp; path = ../../../../../Downloads/Geometry.hpp; sourceTree = "<group>"; };
+		1443260E2915E12F00042B80 /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Node.hpp; path = ../../../../../Downloads/Node.hpp; sourceTree = "<group>"; };
+		1443260F2915E12F00042B80 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = ../../../../../Downloads/Node.cpp; sourceTree = "<group>"; };
+		144326102915E12F00042B80 /* Matrix3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Matrix3.hpp; path = ../../../../../Downloads/Matrix3.hpp; sourceTree = "<group>"; };
+		144326172915E16600042B80 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		144326192915E19100042B80 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		1443261A2915E19100042B80 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		1443261D2915E50000042B80 /* 3D.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 3D.entitlements; sourceTree = "<group>"; };
+		1443261E2915F3D800042B80 /* Shapes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shapes.cpp; sourceTree = "<group>"; };
+		1443261F2915F3D800042B80 /* Shapes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shapes.hpp; sourceTree = "<group>"; };
+		144326212916028800042B80 /* Parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
+		144326222916028800042B80 /* Parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parser.hpp; sourceTree = "<group>"; };
+		14432629291617DD00042B80 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1443261C2915E44700042B80 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +68,7 @@
 			children = (
 				144325FF2915E12300042B80 /* 3D */,
 				144325FE2915E12300042B80 /* Products */,
+				144326162915E16500042B80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +83,34 @@
 		144325FF2915E12300042B80 /* 3D */ = {
 			isa = PBXGroup;
 			children = (
-				144326002915E12300042B80 /* main.cpp */,
+				1443261D2915E50000042B80 /* 3D.entitlements */,
+				1443260B2915E12F00042B80 /* main.cpp */,
+				144326092915E12F00042B80 /* Vector3.hpp */,
+				144326102915E12F00042B80 /* Matrix3.hpp */,
+				1443260C2915E12F00042B80 /* Geometry.hpp */,
+				1443261E2915F3D800042B80 /* Shapes.cpp */,
+				1443261F2915F3D800042B80 /* Shapes.hpp */,
+				1443260F2915E12F00042B80 /* Node.cpp */,
+				1443260E2915E12F00042B80 /* Node.hpp */,
+				144326192915E19100042B80 /* Scene.cpp */,
+				1443261A2915E19100042B80 /* Scene.hpp */,
+				144326072915E12F00042B80 /* Renderer.cpp */,
+				1443260A2915E12F00042B80 /* Renderer.hpp */,
+				144326212916028800042B80 /* Parser.cpp */,
+				144326222916028800042B80 /* Parser.hpp */,
+				142ADAF9291624000057EFB3 /* cube.obj */,
+				14432629291617DD00042B80 /* bunny.obj */,
+				142ADAF82916235A0057EFB3 /* face.obj */,
 			);
 			path = 3D;
+			sourceTree = "<group>";
+		};
+		144326162915E16500042B80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				144326172915E16600042B80 /* SDL2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144326012915E12300042B80 /* main.cpp in Sources */,
+				1443261B2915E19100042B80 /* Scene.cpp in Sources */,
+				144326132915E12F00042B80 /* Node.cpp in Sources */,
+				144326122915E12F00042B80 /* main.cpp in Sources */,
+				144326112915E12F00042B80 /* Renderer.cpp in Sources */,
+				144326232916028800042B80 /* Parser.cpp in Sources */,
+				144326202915F3D800042B80 /* Shapes.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,20 +294,32 @@
 		144326052915E12300042B80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = 3D/3D.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4ZMXMC2TC;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		144326062915E12300042B80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = 3D/3D.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4ZMXMC2TC;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
