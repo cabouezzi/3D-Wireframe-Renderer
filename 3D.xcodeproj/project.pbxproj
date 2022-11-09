@@ -14,22 +14,25 @@
 		1443261B2915E19100042B80 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326192915E19100042B80 /* Scene.cpp */; };
 		1443261C2915E44700042B80 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144326172915E16600042B80 /* SDL2.framework */; };
 		144326232916028800042B80 /* Models.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326212916028800042B80 /* Models.cpp */; };
+		14641ED2291B598000FCC38E /* cube.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 142ADAF9291624000057EFB3 /* cube.obj */; };
+		14641ED3291B598300FCC38E /* bunny.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14432629291617DD00042B80 /* bunny.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		144325FB2915E12300042B80 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				14641ED3291B598300FCC38E /* bunny.obj in CopyFiles */,
+				14641ED2291B598000FCC38E /* cube.obj in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		142ADAF82916235A0057EFB3 /* face.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = face.obj; sourceTree = "<group>"; };
 		142ADAF9291624000057EFB3 /* cube.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		142ADAFE29162AE40057EFB3 /* Matrix3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix3.hpp; sourceTree = "<group>"; };
 		142ADAFF29162AE40057EFB3 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
@@ -102,7 +105,6 @@
 				144326222916028800042B80 /* Models.hpp */,
 				142ADAF9291624000057EFB3 /* cube.obj */,
 				14432629291617DD00042B80 /* bunny.obj */,
-				142ADAF82916235A0057EFB3 /* face.obj */,
 			);
 			path = 3D;
 			sourceTree = "<group>";
@@ -301,9 +303,11 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4ZMXMC2TC;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				HEADER_SEARCH_PATHS = "";
+				INCLUDED_SOURCE_FILE_NAMES = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -317,9 +321,11 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4ZMXMC2TC;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				HEADER_SEARCH_PATHS = "";
+				INCLUDED_SOURCE_FILE_NAMES = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};

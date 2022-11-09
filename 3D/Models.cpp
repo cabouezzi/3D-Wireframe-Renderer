@@ -11,7 +11,7 @@ Geometry obj_Models (string path) {
     fstream file;
     file.open(path);
     
-    if (!file.is_open()) cout << "Couldn't find file\n" << filesystem::current_path();
+    if (!file.is_open()) cout << "Couldn't find file: " << path << " in " << filesystem::current_path() << endl;
     
     vector<Vector3> vertices = {};
     vector<int> faces = {};
@@ -48,7 +48,7 @@ Geometry obj_Models (string path) {
 }
 
 Geometry Models::cube() {
-    Geometry c = obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/cube.obj");
+    Geometry c = obj_Models("cube.obj");
     
     for (int i = 0; i < c.vertices.size(); i++) c.vertices[i] = c.vertices[i];
     
@@ -56,10 +56,6 @@ Geometry Models::cube() {
     
 }
 
-Geometry Models::face() {
-    return obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/face.obj");
-}
-
 Geometry Models::bunny() {
-    return obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/bunny.obj");
+    return obj_Models("bunny.obj");
 }
