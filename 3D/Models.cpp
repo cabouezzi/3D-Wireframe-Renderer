@@ -1,13 +1,13 @@
 //
-//  Parser.cpp
+//  Models.cpp
 //  3D
 //
 //  Created by Chaniel Ezzi on 11/4/22.
 //
 
-#include "Parser.hpp"
+#include "Models.hpp"
 
-Geometry obj_parser (string path) {
+Geometry obj_Models (string path) {
     fstream file;
     file.open(path);
     
@@ -47,8 +47,8 @@ Geometry obj_parser (string path) {
                     static_cast<int>(faces.size()));
 }
 
-Geometry Parser::cube() {
-    Geometry c = obj_parser("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/cube.obj");
+Geometry Models::cube() {
+    Geometry c = obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/cube.obj");
     
     for (int i = 0; i < c.vertices.size(); i++) c.vertices[i] = c.vertices[i];
     
@@ -56,10 +56,10 @@ Geometry Parser::cube() {
     
 }
 
-Geometry Parser::face() {
-    return obj_parser("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/face.obj");
+Geometry Models::face() {
+    return obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/face.obj");
 }
 
-Geometry Parser::bunny() {
-    return obj_parser("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/bunny.obj");
+Geometry Models::bunny() {
+    return obj_Models("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/bunny.obj");
 }

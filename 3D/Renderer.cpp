@@ -6,7 +6,6 @@
 //
 
 #include "Renderer.hpp"
-#include <iostream>
 
 static inline Vector3 applyTranslations (const Vector3 point, const Node *ref) {
     Vector3 p = point;
@@ -18,8 +17,8 @@ static inline Vector3 applyTranslations (const Vector3 point, const Node *ref) {
 
 SDL_Point Renderer::project (Vector3 point) {
     
-    int scale = 300;
-    float fov = 3;
+    int scale = fmax(width, height) / 6;
+    float fov = 5;
     float d = point.z - fov;
     float x = fov / d * point.x;
     float y = fov / d * point.y;
@@ -43,7 +42,7 @@ Renderer::~Renderer() {
 
 void Renderer::draw(Node *node) {
     
-    int scale = 350;
+    SDL_SetRenderDrawColor(renderer, node->color.r, node->color.b, node->color.g, node->color.a);
     
     node->position = node->position + node->velocity;
     node->rotation = node->rotation + node->angularVelocity;
@@ -52,23 +51,17 @@ void Renderer::draw(Node *node) {
     std::vector<int> edges = node->geometry.edges;
     std::vector<int> faces = node->geometry.faces;
     
+    
     // Need 2 vertices for an edge
     int ne = floor(edges.size() / 2);
     
     for (int i = 0; i < ne; i++) {
-        Vector3 start = applyTranslations(vertices[edges[i * 2]], node);
-        Vector3 end = applyTranslations(vertices[edges[i * 2 + 1]], node);
+        SDL_Point start = project(applyTranslations(vertices[edges[i * 2]], node));
+        SDL_Point end = project(applyTranslations(vertices[edges[i * 2 + 1]], node));
         
-        start = start * scale;
-        end = end * scale;
-        
-        int mod = i % 3;
-        SDL_SetRenderDrawColor(renderer, (mod == 0 ? 255 : 0), (mod == 1 ? 255 : 0), (mod == 2 ? 255 : 0), 255);
         SDL_RenderDrawLine(renderer,
-                           start.x + width / 2,
-                           -start.y + height / 2,
-                           end.x + width / 2,
-                           -end.y + height / 2);
+                           start.x, start.y,
+                           end.x, end.y);
         
     }
     
@@ -93,7 +86,6 @@ void Renderer::draw(Node *node) {
     }
     
     // Recursively draw children
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 50);
     for (Node *child : node->getChildren()) draw(child);
     
 }
@@ -106,8 +98,6 @@ void Renderer::draw(Scene* scene) {
         SDL_RenderClear(renderer);
         
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_ADD);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 50);
-        
         // draw
         draw(scene->getRoot());
         
@@ -147,7 +137,7 @@ void Renderer::draw(Scene* scene) {
                         // call drag handler
                         if (!keyPressed) {
                             scene->getRoot()->rotation.y += dx;
-                            scene->getRoot()->rotation.x -= dy;
+                            scene->getRoot()->rotation.x += dy;
                         }
                         else {
                             scene->getRoot()->rotation.z += dx + dy;

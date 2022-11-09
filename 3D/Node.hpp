@@ -13,6 +13,7 @@
 #include "Vector3.hpp"
 #include "Matrix3.hpp"
 #include "Geometry.hpp"
+#include "SDL2/SDL.h"
 
 class Node {
     
@@ -21,6 +22,7 @@ private:
     std::vector<Node*> children = {};
     
 public:
+    
     Vector3 position = Vector3(0,0,0);
     Vector3 rotation = Vector3(0,0,0);
     Vector3 scale = Vector3(1,1,1);
@@ -29,6 +31,7 @@ public:
     Vector3 angularVelocity = Vector3(0,0,0);
     
     Geometry geometry = Geometry();
+    SDL_Color color = {255, 255, 255, 255};
     
     Node () {}
     

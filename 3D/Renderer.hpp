@@ -9,6 +9,7 @@
 #define Renderer_hpp
 
 #include <stdio.h>
+#include <math.h>
 #include "SDL2/SDL.h"
 #include "Scene.hpp"
 #include "Matrix3.hpp"

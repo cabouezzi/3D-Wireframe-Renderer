@@ -13,8 +13,7 @@
 		142ADB0B2916DDEE0057EFB3 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142ADB092916DDEE0057EFB3 /* Camera.cpp */; };
 		1443261B2915E19100042B80 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326192915E19100042B80 /* Scene.cpp */; };
 		1443261C2915E44700042B80 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144326172915E16600042B80 /* SDL2.framework */; };
-		144326202915F3D800042B80 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1443261E2915F3D800042B80 /* Shapes.cpp */; };
-		144326232916028800042B80 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326212916028800042B80 /* Parser.cpp */; };
+		144326232916028800042B80 /* Models.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326212916028800042B80 /* Models.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,11 +46,10 @@
 		144326192915E19100042B80 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
 		1443261A2915E19100042B80 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
 		1443261D2915E50000042B80 /* 3D.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 3D.entitlements; sourceTree = "<group>"; };
-		1443261E2915F3D800042B80 /* Shapes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shapes.cpp; sourceTree = "<group>"; };
-		1443261F2915F3D800042B80 /* Shapes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shapes.hpp; sourceTree = "<group>"; };
-		144326212916028800042B80 /* Parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
-		144326222916028800042B80 /* Parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parser.hpp; sourceTree = "<group>"; };
+		144326212916028800042B80 /* Models.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Models.cpp; sourceTree = "<group>"; };
+		144326222916028800042B80 /* Models.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Models.hpp; sourceTree = "<group>"; };
 		14432629291617DD00042B80 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
+		14641ED1291B559C00FCC38E /* rabbitinabox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rabbitinabox.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +85,11 @@
 			isa = PBXGroup;
 			children = (
 				1443261D2915E50000042B80 /* 3D.entitlements */,
+				14641ED1291B559C00FCC38E /* rabbitinabox.png */,
 				142ADB0029162AE40057EFB3 /* main.cpp */,
 				142ADB0229162AE40057EFB3 /* Vector3.hpp */,
 				142ADAFE29162AE40057EFB3 /* Matrix3.hpp */,
 				142ADB0329162AE40057EFB3 /* Geometry.hpp */,
-				1443261E2915F3D800042B80 /* Shapes.cpp */,
-				1443261F2915F3D800042B80 /* Shapes.hpp */,
 				142ADB0529162AE40057EFB3 /* Node.cpp */,
 				142ADB0429162AE40057EFB3 /* Node.hpp */,
 				144326192915E19100042B80 /* Scene.cpp */,
@@ -101,8 +98,8 @@
 				142ADB0129162AE40057EFB3 /* Renderer.hpp */,
 				142ADB092916DDEE0057EFB3 /* Camera.cpp */,
 				142ADB0A2916DDEE0057EFB3 /* Camera.hpp */,
-				144326212916028800042B80 /* Parser.cpp */,
-				144326222916028800042B80 /* Parser.hpp */,
+				144326212916028800042B80 /* Models.cpp */,
+				144326222916028800042B80 /* Models.hpp */,
 				142ADAF9291624000057EFB3 /* cube.obj */,
 				14432629291617DD00042B80 /* bunny.obj */,
 				142ADAF82916235A0057EFB3 /* face.obj */,
@@ -179,9 +176,8 @@
 				1443261B2915E19100042B80 /* Scene.cpp in Sources */,
 				142ADB0B2916DDEE0057EFB3 /* Camera.cpp in Sources */,
 				142ADB0629162AE40057EFB3 /* Renderer.cpp in Sources */,
-				144326232916028800042B80 /* Parser.cpp in Sources */,
+				144326232916028800042B80 /* Models.cpp in Sources */,
 				142ADB0729162AE40057EFB3 /* main.cpp in Sources */,
-				144326202915F3D800042B80 /* Shapes.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,7 @@
 #include <vector>
 #include "SDL2/SDL.h"
 #include "Renderer.hpp"
-#include "Shapes.hpp"
-#include "Parser.hpp"
+#include "Models.hpp"
 
 using namespace std;
 
@@ -27,8 +26,16 @@ int main(int argc, const char * argv[]) {
     Scene scene = Scene();
     
     Node bunny = Node();
-    bunny.geometry = Parser::face();
+    bunny.geometry = Models::bunny();
+    bunny.color.b = 100;
+    bunny.color.a = 50;
     scene.getRoot()->addChildNode(&bunny);
+    
+    
+    Node cube = Node();
+    cube.geometry = Models::cube();
+    scene.getRoot()->addChildNode(&cube);
+    
     renderer.draw(&scene);
     
     return 0;
