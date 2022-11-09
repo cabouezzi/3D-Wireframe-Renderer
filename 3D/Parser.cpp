@@ -50,7 +50,7 @@ Geometry obj_parser (string path) {
 Geometry Parser::cube() {
     Geometry c = obj_parser("/Users/chanielezzi/Desktop/Code/Personal/3D/3D/cube.obj");
     
-    for (int i = 0; i < c.vertices.size(); i++) c.vertices[i] = c.vertices[i] * 1/10;
+    for (int i = 0; i < c.vertices.size(); i++) c.vertices[i] = c.vertices[i];
     
     return c;
     

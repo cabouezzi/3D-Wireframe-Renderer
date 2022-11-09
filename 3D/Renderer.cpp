@@ -8,11 +8,24 @@
 #include "Renderer.hpp"
 #include <iostream>
 
-static Vector3 project (Vector3 point, float distance) {
-    float fov = distance + point.z;
-    float x = point.x / pow(fov,1);
-    float y = point.y / pow(fov,1);
-    return Vector3(x, y, point.z);
+static inline Vector3 applyTranslations (const Vector3 point, const Node *ref) {
+    Vector3 p = point;
+    p = scaledVector(point, ref->scale);
+    p = rotatedVector(p, ref->worldRotation()) + ref->worldPosition();
+    
+    return p;
+}
+
+SDL_Point Renderer::project (Vector3 point) {
+    
+    int scale = 300;
+    float fov = 3;
+    float d = point.z - fov;
+    float x = fov / d * point.x;
+    float y = fov / d * point.y;
+    
+    SDL_Point p = { static_cast<int>(x*scale) + width/2, static_cast<int>(y*scale) + height/2 };
+    return p;
 }
 
 Renderer::Renderer (int w, int h) {
@@ -30,45 +43,57 @@ Renderer::~Renderer() {
 
 void Renderer::draw(Node *node) {
     
+    int scale = 350;
+    
+    node->position = node->position + node->velocity;
+    node->rotation = node->rotation + node->angularVelocity;
+    
     std::vector<Vector3> vertices = node->geometry.vertices;
     std::vector<int> edges = node->geometry.edges;
     std::vector<int> faces = node->geometry.faces;
+    
+    // Need 2 vertices for an edge
+    int ne = floor(edges.size() / 2);
+    
+    for (int i = 0; i < ne; i++) {
+        Vector3 start = applyTranslations(vertices[edges[i * 2]], node);
+        Vector3 end = applyTranslations(vertices[edges[i * 2 + 1]], node);
+        
+        start = start * scale;
+        end = end * scale;
+        
+        int mod = i % 3;
+        SDL_SetRenderDrawColor(renderer, (mod == 0 ? 255 : 0), (mod == 1 ? 255 : 0), (mod == 2 ? 255 : 0), 255);
+        SDL_RenderDrawLine(renderer,
+                           start.x + width / 2,
+                           -start.y + height / 2,
+                           end.x + width / 2,
+                           -end.y + height / 2);
+        
+    }
     
     // Need 3 vertices for a face
     int nf = floor(faces.size() / 3);
     
     for (int i = 0; i < nf; i++) {
         
-        Vector3 one = vertices[faces[i * 3]];
-        Vector3 two = vertices[faces[i * 3 + 1]];
-        Vector3 three = vertices[faces[i * 3 + 2]];
-        
-        one = rotatedVector(one, node->worldRotation()) + node->worldPosition();
-        two = rotatedVector(two, node->worldRotation()) + node->worldPosition();
-        three = rotatedVector(three, node->worldRotation()) + node->worldPosition();
-        
-        one = one * 350;
-        two = two * 350;
-        three = three * 350;
+        SDL_Point one = project(applyTranslations(vertices[faces[i * 3]], node));
+        SDL_Point two = project(applyTranslations(vertices[faces[i * 3 + 1]], node));
+        SDL_Point three = project(applyTranslations(vertices[faces[i * 3 + 2]], node));
         
         SDL_RenderDrawLine(renderer,
-                           one.x + width / 2,
-                           -one.y + height / 2,
-                           two.x + width / 2,
-                           -two.y + height / 2);
+                           one.x, one.y,
+                           two.x, two.y);
         SDL_RenderDrawLine(renderer,
-                           one.x + width / 2,
-                           -one.y + height / 2,
-                           three.x + width / 2,
-                           -three.y + height / 2);
+                           one.x, one.y,
+                           three.x, three.y);
         SDL_RenderDrawLine(renderer,
-                           three.x + width / 2,
-                           -three.y + height / 2,
-                           two.x + width / 2,
-                           -two.y + height / 2);
+                           three.x, three.y,
+                           two.x, two.y);
     }
     
     // Recursively draw children
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 50);
     for (Node *child : node->getChildren()) draw(child);
     
 }
@@ -85,8 +110,6 @@ void Renderer::draw(Scene* scene) {
         
         // draw
         draw(scene->getRoot());
-//        scene->getRoot()->rotation.x += M_PI_4 / 100;
-//        scene->getRoot()->rotation.y += M_PI_4 / 100;
         
         SDL_RenderPresent(renderer);
         
@@ -97,15 +120,20 @@ void Renderer::draw(Scene* scene) {
                     break;
                 }
                 case SDL_KEYDOWN: {
-                    quit = true;
+                    keyPressed = true;
+                    break;
+                }
+                case SDL_KEYUP: {
+                    keyPressed = false;
                     break;
                 }
                 case SDL_MOUSEBUTTONDOWN: {
-                    pressed = true;
+                    mousePressed = true;
                     break;
                 }
                 case SDL_MOUSEMOTION: {
-                    if (pressed) {
+                    
+                    if (mousePressed) {
                         SDL_Point mouseState;
                         SDL_GetMouseState(&mouseState.x, &mouseState.y);
                         
@@ -117,8 +145,13 @@ void Renderer::draw(Scene* scene) {
                         float dy = static_cast<float>(mouseState.y - mouseStateCache.y) / 100;
                         
                         // call drag handler
-                        scene->getRoot()->rotation.y += dx;
-                        scene->getRoot()->rotation.x += dy;
+                        if (!keyPressed) {
+                            scene->getRoot()->rotation.y += dx;
+                            scene->getRoot()->rotation.x -= dy;
+                        }
+                        else {
+                            scene->getRoot()->rotation.z += dx + dy;
+                        }
                         
                         // Save last state in cache
                         mouseStateCache.x = mouseState.x;
@@ -133,7 +166,7 @@ void Renderer::draw(Scene* scene) {
                         // call click handler
                     }
                     
-                    pressed = false;
+                    mousePressed = false;
                     dragging = false;
                     break;
                 }

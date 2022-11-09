@@ -25,12 +25,14 @@ private:
     SDL_Event event;
     
     bool quit = false;
-    bool pressed = false;
+    bool mousePressed = false;
+    bool keyPressed = false;
     bool dragging = false;
     
     SDL_Point mouseStateCache = {0,0};
     
     void draw (Node *node);
+    SDL_Point project (Vector3 point);
     
 public:
     

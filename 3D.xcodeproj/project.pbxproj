@@ -10,6 +10,7 @@
 		142ADB0629162AE40057EFB3 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142ADAFF29162AE40057EFB3 /* Renderer.cpp */; };
 		142ADB0729162AE40057EFB3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142ADB0029162AE40057EFB3 /* main.cpp */; };
 		142ADB0829162AE40057EFB3 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142ADB0529162AE40057EFB3 /* Node.cpp */; };
+		142ADB0B2916DDEE0057EFB3 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 142ADB092916DDEE0057EFB3 /* Camera.cpp */; };
 		1443261B2915E19100042B80 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 144326192915E19100042B80 /* Scene.cpp */; };
 		1443261C2915E44700042B80 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144326172915E16600042B80 /* SDL2.framework */; };
 		144326202915F3D800042B80 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1443261E2915F3D800042B80 /* Shapes.cpp */; };
@@ -39,6 +40,8 @@
 		142ADB0329162AE40057EFB3 /* Geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Geometry.hpp; sourceTree = "<group>"; };
 		142ADB0429162AE40057EFB3 /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		142ADB0529162AE40057EFB3 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		142ADB092916DDEE0057EFB3 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		142ADB0A2916DDEE0057EFB3 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		144325FD2915E12300042B80 /* 3D */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 3D; sourceTree = BUILT_PRODUCTS_DIR; };
 		144326172915E16600042B80 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		144326192915E19100042B80 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				1443261A2915E19100042B80 /* Scene.hpp */,
 				142ADAFF29162AE40057EFB3 /* Renderer.cpp */,
 				142ADB0129162AE40057EFB3 /* Renderer.hpp */,
+				142ADB092916DDEE0057EFB3 /* Camera.cpp */,
+				142ADB0A2916DDEE0057EFB3 /* Camera.hpp */,
 				144326212916028800042B80 /* Parser.cpp */,
 				144326222916028800042B80 /* Parser.hpp */,
 				142ADAF9291624000057EFB3 /* cube.obj */,
@@ -172,6 +177,7 @@
 			files = (
 				142ADB0829162AE40057EFB3 /* Node.cpp in Sources */,
 				1443261B2915E19100042B80 /* Scene.cpp in Sources */,
+				142ADB0B2916DDEE0057EFB3 /* Camera.cpp in Sources */,
 				142ADB0629162AE40057EFB3 /* Renderer.cpp in Sources */,
 				144326232916028800042B80 /* Parser.cpp in Sources */,
 				142ADB0729162AE40057EFB3 /* main.cpp in Sources */,

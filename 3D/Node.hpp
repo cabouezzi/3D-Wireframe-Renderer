@@ -23,6 +23,10 @@ private:
 public:
     Vector3 position = Vector3(0,0,0);
     Vector3 rotation = Vector3(0,0,0);
+    Vector3 scale = Vector3(1,1,1);
+    
+    Vector3 velocity = Vector3(0,0,0);
+    Vector3 angularVelocity = Vector3(0,0,0);
     
     Geometry geometry = Geometry();
     

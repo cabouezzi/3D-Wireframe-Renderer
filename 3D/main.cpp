@@ -23,14 +23,12 @@ Vector3 project (Vector3 point, float distance) {
 
 int main(int argc, const char * argv[]) {
     
-    Renderer renderer = Renderer(1200, 800);
+    Renderer renderer = Renderer(1200, 850);
     Scene scene = Scene();
     
-    Node cube = Node();
-    cube.geometry = Parser::bunny();
-    cout << endl << cube.geometry.vertices.size() << " " << cube.geometry.faces.size();
-    scene.getRoot()->addChildNode(&cube);
-    
+    Node bunny = Node();
+    bunny.geometry = Parser::face();
+    scene.getRoot()->addChildNode(&bunny);
     renderer.draw(&scene);
     
     return 0;

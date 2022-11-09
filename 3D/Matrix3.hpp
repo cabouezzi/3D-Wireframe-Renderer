@@ -41,20 +41,45 @@ public:
                        values[2][0]*v.x + values[2][1]*v.y + values[2][2]*v.z);
     }
     
+    Matrix3 operator * (Matrix3 m) {
+        
+        Vector3 m1 = Vector3(m[0][0], m[1][0], m[2][0]);
+        Vector3 m2 = Vector3(m[0][1], m[1][1], m[2][1]);
+        Vector3 m3 = Vector3(m[0][2], m[1][2], m[2][2]);
+        
+        Vector3 a1 = *this * m1;
+        Vector3 a2 = *this * m2;
+        Vector3 a3 = *this * m3;
+        
+        return Matrix3(a1.x, a2.x, a3.x,
+                       a1.y, a2.y, a3.y,
+                       a1.z, a2.z, a3.z);
+    }
+    
     float* operator[](int i) {
         return values[i];
     }
     
 };
 
-static Vector3 rotatedVector (Vector3 vector, Vector3 rotation) {
+static inline Vector3 scaledVector (const Vector3 vector, const Vector3 scale) {
+    
+    Matrix3 scaleMatrix = Matrix3(scale.x, 0, 0,
+                                  0, scale.y, 0,
+                                  0, 0, scale.z);
+    return scaleMatrix * vector;
+    
+}
+
+static inline Vector3 rotatedVector (const Vector3 vector, const Vector3 rotation) {
+    
     Matrix3 xtransform = Matrix3(1, 0, 0,
                                  0, cos(rotation.x), -sin(rotation.x),
                                  0, sin(rotation.x),  cos(rotation.x));
     
-    Matrix3 ytransform = Matrix3( cos(rotation.y), 0, sin(rotation.y),
+    Matrix3 ytransform = Matrix3( cos(rotation.y), 0, -sin(rotation.y),
                                  0, 1, 0,
-                                 -sin(rotation.y), 0, cos(rotation.y));
+                                 sin(rotation.y), 0, cos(rotation.y));
     
     Matrix3 ztransform = Matrix3(cos(rotation.z), -sin(rotation.z), 0,
                                  sin(rotation.z),  cos(rotation.z), 0,
@@ -63,7 +88,7 @@ static Vector3 rotatedVector (Vector3 vector, Vector3 rotation) {
     rotated = xtransform * (rotated);
     rotated = ytransform * (rotated);
     rotated = ztransform * (rotated);
-    return rotated;
+    return (ztransform * ytransform * xtransform) * vector;
 }
 
 #endif /* Matrix3_hpp */
