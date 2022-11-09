@@ -67,6 +67,7 @@
 		144325F42915E12300042B80 = {
 			isa = PBXGroup;
 			children = (
+				14641ED1291B559C00FCC38E /* rabbitinabox.png */,
 				144325FF2915E12300042B80 /* 3D */,
 				144325FE2915E12300042B80 /* Products */,
 				144326162915E16500042B80 /* Frameworks */,
@@ -85,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				1443261D2915E50000042B80 /* 3D.entitlements */,
-				14641ED1291B559C00FCC38E /* rabbitinabox.png */,
 				142ADB0029162AE40057EFB3 /* main.cpp */,
 				142ADB0229162AE40057EFB3 /* Vector3.hpp */,
 				142ADAFE29162AE40057EFB3 /* Matrix3.hpp */,
